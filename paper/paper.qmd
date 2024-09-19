@@ -1,0 +1,29 @@
+---
+title: "Marriages in Toronto from 2016-2023"
+format: pdf
+author: "Tara Chakkithara"
+abstract: "Marriages in Toronto seem to have been affected by COVID-19."
+bibliography: references.bib
+echo: false
+warning: false
+---
+
+Notice that marriages in Toronto went down but they seem to be rising again @fig. 
+
+```{r}
+#| label: fig-plots
+library(tidyverse)
+data <- read_csv("../data/analysis_data/analysis_data.csv")
+data |>
+  ggplot(
+    aes(x = year, y = marriage_licenses)
+  ) +
+  geom_bar(stat = "identity", fill = 'pink') +
+  theme_bw() +
+  labs(
+    title = "Marriages in Toronto from 2016 - 2013",
+    x = "Year",
+    y = "Number of Marriage Licenses"
+  )
+```
+
